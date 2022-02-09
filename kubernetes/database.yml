@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: seasidefm
+  name: mariadb
+  labels:
+    app: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: mariadb
+          image: mariadb
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: mariadb-volume
+              mountPath: /var/lib/mysql
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MARIADB_ROOT_PASSWORD
+              value: "example-please-change"
+      volumes:
+        - name: mariadb-volume
+          persistentVolumeClaim:
+            claimName: mariadb-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: seasidefm
+  name: mariadb
+spec:
+  type: LoadBalancer
+  selector:
+    app: mariadb
+  ports:
+    - name: database-port
+      port: 9812
+      targetPort: 3306
