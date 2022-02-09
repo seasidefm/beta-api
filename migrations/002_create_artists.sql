@@ -1,6 +1,0 @@
-USE devdb;
-CREATE TABLE IF NOT EXISTS artists (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(30) NOT NULL,
-    aliases VARCHAR(100)
-);

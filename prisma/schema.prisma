@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["linux-arm64-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Artist {
+  id      Int     @id @default(autoincrement())
+  name    String  @db.VarChar(30)
+  aliases String? @db.VarChar(100)
+  songs   Song[]
+}
+
+model Favorite {
+  song  Int
+  user  Int
+  songData  Song @relation(fields: [song], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_song")
+  userData  User @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_user")
+
+  @@unique([song, user], map: "song")
+  @@index([user], map: "fk_user")
+  @@index([song, user], map: "user_songs")
+}
+
+model Song {
+  id         Int         @id @default(autoincrement())
+  song_title String      @db.VarChar(256)
+  artist_id  Int
+  artists    Artist     @relation(fields: [artist_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_song_artist")
+  favorites  Favorite[]
+
+  @@index([artist_id], map: "fk_song_artist")
+}
+
+model User {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique(map: "name") @db.VarChar(45)
+  favorites Favorite[]
+}

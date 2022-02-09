@@ -1,0 +1,6 @@
+FROM node:16-buster
+
+WORKDIR /app
+COPY . .
+
+CMD ["sh", "-c", "yarn && yarn docker-dev"]
