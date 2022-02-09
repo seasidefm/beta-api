@@ -15,8 +15,28 @@ app.get('/favorites',async (_, res) => {
             name: true,
             favorites: {
                 select: {
+                    dateSaved: true,
                     songData: true,
-                    userData: true
+                }
+            }
+        }
+    })
+
+    res.json({ data: usersWithFavorites })
+})
+
+app.get('/leaderboard/favorites', async (_, res) => {
+    const usersWithFavorites = await prisma.user.findMany({
+        orderBy: {
+            favorites: {
+                _count: "asc"
+            }
+        },
+        select: {
+            name: true,
+            _count: {
+                select: {
+                    favorites: true
                 }
             }
         }
