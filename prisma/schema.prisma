@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["linux-arm64-openssl-1.1.x"]
 }
 
@@ -10,17 +10,19 @@ datasource db {
 
 model Artist {
   id      Int     @id @default(autoincrement())
-  name    String  @db.VarChar(30)
+  name    String  @unique @db.VarChar(30)
   aliases String? @db.VarChar(100)
   songs   Song[]
+
+  @@index([name, aliases], map: "artist")
 }
 
 model Favorite {
-  song  Int
-  user  Int
+  song      Int
+  user      Int
   dateSaved DateTime @default(now())
-  songData  Song @relation(fields: [song], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_song")
-  userData  User @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_user")
+  songData  Song     @relation(fields: [song], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_song")
+  userData  User     @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_user")
 
   @@unique([song, user], map: "song")
   @@index([user], map: "fk_user")
@@ -28,17 +30,29 @@ model Favorite {
 }
 
 model Song {
-  id         Int         @id @default(autoincrement())
-  song_title String      @db.VarChar(256)
+  id         Int        @id @default(autoincrement())
+  song_title String     @db.VarChar(256)
   artist_id  Int
   artists    Artist     @relation(fields: [artist_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_song_artist")
   favorites  Favorite[]
 
+  PlaylistEntry PlaylistEntry[]
+  @@unique([song_title, artist_id])
   @@index([artist_id], map: "fk_song_artist")
 }
 
+model PlaylistEntry {
+  id        Int      @id @default(autoincrement())
+  played_on DateTime @default(now())
+  playing   Boolean  @default(false)
+  song_id   Int
+  song      Song     @relation(fields: [song_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_playlist_song")
+
+  @@index([playing, song_id], map: "current_song")
+}
+
 model User {
-  id        Int         @id @default(autoincrement())
-  name      String      @unique(map: "name") @db.VarChar(45)
+  id        Int        @id @default(autoincrement())
+  name      String     @unique(map: "name") @db.VarChar(45)
   favorites Favorite[]
 }

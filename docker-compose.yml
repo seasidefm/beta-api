@@ -1,13 +1,20 @@
 # Use root/example as user/password credentials
 version: '3.1'
 services:
+  cache:
+    image: redislabs/redismod:latest
+    restart: always
+    ports:
+      - "6379:6379"
   db:
     image: mariadb
     restart: always
     ports:
-      - 3306:3306
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - db-data:/var/lib/mysql
 #  express:
 #    build:
 #      context: .
@@ -26,4 +33,4 @@ services:
 #      - .env
 
 volumes:
-  express-node_modules:
+  db-data:
