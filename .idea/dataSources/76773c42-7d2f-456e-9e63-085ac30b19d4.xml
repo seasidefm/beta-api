@@ -1137,622 +1137,238 @@
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="338" parent="325" name="ALL_PLUGINS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="339" parent="325" name="APPLICABLE_ROLES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="340" parent="325" name="CHARACTER_SETS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="341" parent="325" name="CHECK_CONSTRAINTS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="342" parent="325" name="CLIENT_STATISTICS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="343" parent="325" name="COLLATIONS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="344" parent="325" name="COLLATION_CHARACTER_SET_APPLICABILITY">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="345" parent="325" name="COLUMNS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="346" parent="325" name="COLUMN_PRIVILEGES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="347" parent="325" name="ENABLED_ROLES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="348" parent="325" name="ENGINES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="349" parent="325" name="EVENTS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="350" parent="325" name="FILES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="351" parent="325" name="GEOMETRY_COLUMNS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="352" parent="325" name="GLOBAL_STATUS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="353" parent="325" name="GLOBAL_VARIABLES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="354" parent="325" name="INDEX_STATISTICS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="355" parent="325" name="INNODB_BUFFER_PAGE">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="356" parent="325" name="INNODB_BUFFER_PAGE_LRU">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="357" parent="325" name="INNODB_BUFFER_POOL_STATS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="358" parent="325" name="INNODB_CMP">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="359" parent="325" name="INNODB_CMPMEM">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="360" parent="325" name="INNODB_CMPMEM_RESET">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="361" parent="325" name="INNODB_CMP_PER_INDEX">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="362" parent="325" name="INNODB_CMP_PER_INDEX_RESET">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="363" parent="325" name="INNODB_CMP_RESET">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="364" parent="325" name="INNODB_FT_BEING_DELETED">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="365" parent="325" name="INNODB_FT_CONFIG">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="366" parent="325" name="INNODB_FT_DEFAULT_STOPWORD">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="367" parent="325" name="INNODB_FT_DELETED">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="368" parent="325" name="INNODB_FT_INDEX_CACHE">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="369" parent="325" name="INNODB_FT_INDEX_TABLE">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="370" parent="325" name="INNODB_LOCKS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="371" parent="325" name="INNODB_LOCK_WAITS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="372" parent="325" name="INNODB_METRICS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="373" parent="325" name="INNODB_SYS_COLUMNS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="374" parent="325" name="INNODB_SYS_FIELDS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="375" parent="325" name="INNODB_SYS_FOREIGN">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="376" parent="325" name="INNODB_SYS_FOREIGN_COLS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="377" parent="325" name="INNODB_SYS_INDEXES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="378" parent="325" name="INNODB_SYS_TABLES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="379" parent="325" name="INNODB_SYS_TABLESPACES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="380" parent="325" name="INNODB_SYS_TABLESTATS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="381" parent="325" name="INNODB_SYS_VIRTUAL">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="382" parent="325" name="INNODB_TABLESPACES_ENCRYPTION">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="383" parent="325" name="INNODB_TRX">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="384" parent="325" name="KEYWORDS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="385" parent="325" name="KEY_CACHES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="386" parent="325" name="KEY_COLUMN_USAGE">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="387" parent="325" name="OPTIMIZER_TRACE">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="388" parent="325" name="PARAMETERS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="389" parent="325" name="PARTITIONS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="390" parent="325" name="PLUGINS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="391" parent="325" name="PROCESSLIST">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="392" parent="325" name="PROFILING">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="393" parent="325" name="REFERENTIAL_CONSTRAINTS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="394" parent="325" name="ROUTINES">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="395" parent="325" name="SCHEMATA">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="396" parent="325" name="SCHEMA_PRIVILEGES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="397" parent="325" name="SESSION_STATUS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="398" parent="325" name="SESSION_VARIABLES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="399" parent="325" name="SPATIAL_REF_SYS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="400" parent="325" name="SQL_FUNCTIONS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="401" parent="325" name="STATISTICS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="402" parent="325" name="SYSTEM_VARIABLES">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="403" parent="325" name="TABLES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="404" parent="325" name="TABLESPACES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="405" parent="325" name="TABLE_CONSTRAINTS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="406" parent="325" name="TABLE_PRIVILEGES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="407" parent="325" name="TABLE_STATISTICS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="408" parent="325" name="THREAD_POOL_GROUPS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="409" parent="325" name="THREAD_POOL_QUEUES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="410" parent="325" name="THREAD_POOL_STATS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="411" parent="325" name="THREAD_POOL_WAITS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="412" parent="325" name="TRIGGERS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="413" parent="325" name="USER_PRIVILEGES">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="414" parent="325" name="USER_STATISTICS">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="415" parent="325" name="VIEWS">
-      <Engine>Aria</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="416" parent="325" name="user_variables">
-      <Engine>MEMORY</Engine>
-      <System>1</System>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <column id="417" parent="332" name="id">
+    <column id="338" parent="332" name="id">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="418" parent="332" name="name">
-      <DataType>varchar(30)|0s</DataType>
+    <column id="339" parent="332" name="name">
+      <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="419" parent="332" name="aliases">
-      <DataType>varchar(100)|0s</DataType>
+    <column id="340" parent="332" name="aliases">
+      <DataType>varchar(256)|0s</DataType>
       <Position>3</Position>
     </column>
-    <index id="420" parent="332" name="Artist_name_key">
+    <index id="341" parent="332" name="Artist_name_key">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="421" parent="332" name="artist">
+    <index id="342" parent="332" name="artist">
       <ColNames>name
 aliases</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="422" parent="332" name="PRIMARY">
+    <key id="343" parent="332" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="423" parent="332" name="Artist_name_key">
+    <key id="344" parent="332" name="Artist_name_key">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>Artist_name_key</UnderlyingIndexName>
     </key>
-    <column id="424" parent="333" name="song">
+    <column id="345" parent="333" name="song">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="425" parent="333" name="user">
+    <column id="346" parent="333" name="user">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="426" parent="333" name="dateSaved">
+    <column id="347" parent="333" name="dateSaved">
       <DataType>datetime(3)|0s</DataType>
       <DefaultExpression>current_timestamp(3)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <foreign-key id="427" parent="333" name="fk_song">
+    <foreign-key id="348" parent="333" name="fk_song">
       <ColNames>song</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>Song</RefTableName>
     </foreign-key>
-    <foreign-key id="428" parent="333" name="fk_user">
+    <foreign-key id="349" parent="333" name="fk_user">
       <ColNames>user</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>User</RefTableName>
     </foreign-key>
-    <index id="429" parent="333" name="song">
+    <index id="350" parent="333" name="song">
       <ColNames>song
 user</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="430" parent="333" name="user_songs">
+    <index id="351" parent="333" name="user_songs">
       <ColNames>song
 user</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="431" parent="333" name="fk_user">
+    <index id="352" parent="333" name="fk_user">
       <ColNames>user</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="432" parent="333" name="song">
+    <key id="353" parent="333" name="song">
       <ColNames>song
 user</ColNames>
       <UnderlyingIndexName>song</UnderlyingIndexName>
     </key>
-    <column id="433" parent="334" name="id">
+    <column id="354" parent="334" name="id">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="434" parent="334" name="played_on">
+    <column id="355" parent="334" name="played_on">
       <DataType>datetime(3)|0s</DataType>
       <DefaultExpression>current_timestamp(3)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="435" parent="334" name="song_id">
+    <column id="356" parent="334" name="song_id">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="436" parent="334" name="playing">
+    <column id="357" parent="334" name="playing">
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <foreign-key id="437" parent="334" name="fk_playlist_song">
+    <foreign-key id="358" parent="334" name="fk_playlist_song">
       <ColNames>song_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>Song</RefTableName>
     </foreign-key>
-    <index id="438" parent="334" name="fk_playlist_song">
+    <index id="359" parent="334" name="fk_playlist_song">
       <ColNames>song_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="439" parent="334" name="current_song">
+    <index id="360" parent="334" name="current_song">
       <ColNames>playing
 song_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="440" parent="334" name="PRIMARY">
+    <key id="361" parent="334" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="441" parent="335" name="id">
+    <column id="362" parent="335" name="id">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="442" parent="335" name="song_title">
-      <DataType>varchar(256)|0s</DataType>
+    <column id="363" parent="335" name="song_title">
+      <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="443" parent="335" name="artist_id">
+    <column id="364" parent="335" name="artist_id">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <foreign-key id="444" parent="335" name="fk_song_artist">
+    <foreign-key id="365" parent="335" name="fk_song_artist">
       <ColNames>artist_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>Artist</RefTableName>
     </foreign-key>
-    <index id="445" parent="335" name="fk_song_artist">
+    <index id="366" parent="335" name="Song_song_title_artist_id_key">
+      <ColNames>song_title
+artist_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="367" parent="335" name="fk_song_artist">
       <ColNames>artist_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="446" parent="335" name="PRIMARY">
+    <key id="368" parent="335" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="447" parent="336" name="id">
+    <key id="369" parent="335" name="Song_song_title_artist_id_key">
+      <ColNames>song_title
+artist_id</ColNames>
+      <UnderlyingIndexName>Song_song_title_artist_id_key</UnderlyingIndexName>
+    </key>
+    <column id="370" parent="336" name="id">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="448" parent="336" name="name">
+    <column id="371" parent="336" name="name">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="449" parent="336" name="name">
+    <index id="372" parent="336" name="name">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="450" parent="336" name="PRIMARY">
+    <key id="373" parent="336" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="451" parent="336" name="name">
+    <key id="374" parent="336" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="452" parent="337" name="id">
+    <column id="375" parent="337" name="id">
       <DataType>varchar(36)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="453" parent="337" name="checksum">
+    <column id="376" parent="337" name="checksum">
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="454" parent="337" name="finished_at">
+    <column id="377" parent="337" name="finished_at">
       <DataType>datetime(3)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="455" parent="337" name="migration_name">
+    <column id="378" parent="337" name="migration_name">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="456" parent="337" name="logs">
+    <column id="379" parent="337" name="logs">
       <DataType>text|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="457" parent="337" name="rolled_back_at">
+    <column id="380" parent="337" name="rolled_back_at">
       <DataType>datetime(3)|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="458" parent="337" name="started_at">
+    <column id="381" parent="337" name="started_at">
       <DataType>datetime(3)|0s</DataType>
       <DefaultExpression>current_timestamp(3)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="459" parent="337" name="applied_steps_count">
+    <column id="382" parent="337" name="applied_steps_count">
       <DataType>int(10) unsigned|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <key id="460" parent="337" name="PRIMARY">
+    <key id="383" parent="337" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>

@@ -25,10 +25,7 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema">
-            <name qname="devdb" />
-            <name qname="information_schema" />
-          </node>
+          <node kind="schema" qname="devdb" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

@@ -2,6 +2,8 @@ import express from 'express'
 
 import { PrismaClient } from '@prisma/client'
 import {CacheNames, getRedisClient, setupRedisClient} from "./utils/redis";
+import {Artist} from "./services/Artist";
+import {Song} from "./services/Song";
 const prisma = new PrismaClient()
 
 const app = express()
@@ -41,6 +43,8 @@ app.get('/now-playing', async (_, res) => {
 app.put('/now-playing', async (req, res) => {
     console.log('PUT [/now-playing] - {')
     const redis = getRedisClient()
+    const a = new Artist()
+    const s = new Song()
 
     const {song}: {song: string} = req.body
     if (!song) {
@@ -65,36 +69,10 @@ app.put('/now-playing', async (req, res) => {
     const [artistName, songTitle] = song.split('-').map(s => s.trim())
 
     console.log('-> Upserting given artist')
-    const artist = await prisma.artist.upsert({
-        where: {
-            name: artistName.toLowerCase()
-        },
-        update: {},
-
-        // If one is not found, create an artist with that name
-        create: {
-            name: artistName,
-        }
-    });
+    const artist = await a.findOrCreate(artistName)
 
     console.log('-> Upserting given song')
-    const createdSong = await prisma.song.upsert({
-        where: {
-            song_title_artist_id: {
-                artist_id: artist.id,
-                song_title: songTitle
-            }
-        },
-        update: {},
-        create: {
-            song_title: songTitle,
-            artists: {
-                connect: {
-                    id: artist.id
-                },
-            },
-        }
-    })
+    const createdSong = await s.findOrCreate(artist.id, songTitle)
 
     console.log('-> Setting current playlist to not playing')
     await prisma.playlistEntry.updateMany({
