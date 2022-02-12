@@ -1,9 +1,9 @@
 import fs from "fs"
 
-import {User} from "./services/User";
-import {Artist} from "./services/Artist";
-import {Song} from "./services/Song";
-import {Favorite} from "./services/Favorite";
+import {User} from "./services/base/User";
+import {Artist} from "./services/base/Artist";
+import {Song} from "./services/base/Song";
+import {Favorites} from "./services/base/Favorites";
 
 interface JSONStructure {
     "user": string,
@@ -57,7 +57,7 @@ async function main() {
 
     console.log('Sending to database')
     const data: FileContents = parsed
-    const u = new User(), a = new Artist(), s = new Song(), f = new Favorite()
+    const u = new User(), a = new Artist(), s = new Song(), f = new Favorites()
     // ------------------------------------- Loop through each user
     for (const entry of data) {
         const { user, songs} = entry

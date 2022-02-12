@@ -1,25 +1,26 @@
-import { createClient } from 'redis';
+import { createClient } from "redis";
 
 export enum CacheNames {
+    UserFavoriteCounts = "user-fave-counts",
     FavoritesLeaderboard = "favorites-leaderboard",
     NowPlaying = "now-playing",
 }
 
-const client = createClient();
+export const __redisClient = createClient();
 
 export const setupRedisClient = async () => {
-    client.on('error', (err) => console.log('Redis Client Error', err));
-    client.on('connect', () => console.log('Connected to Redis cache'));
-    await client.connect();
+    __redisClient.on("error", (err) => console.log("Redis Client Error", err));
+    __redisClient.on("connect", () => console.log("Connected to Redis cache"));
+    await __redisClient.connect();
 
-    console.log('Clearing up cache objects from last deploy...')
+    console.log("Clearing up cache objects from last deploy...");
     for (const key of Object.keys(CacheNames)) {
-        const cache = CacheNames[key as keyof typeof CacheNames]
-        await client.del(cache)
-        await client.json.del(cache, ".")
+        const cache = CacheNames[key as keyof typeof CacheNames];
+        await __redisClient.del(cache);
+        await __redisClient.json.del(cache, ".");
     }
 
-    console.log('Done')
-}
+    console.log("Done");
+};
 
-export const getRedisClient = () => client
+export const getRedisClient = () => __redisClient;
