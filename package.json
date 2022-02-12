@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "prisma": {
+        "seed": "ts-node prisma/seed.ts"
+    },
     "scripts": {
         "dev": "nodemon -e ts --exec ts-node server/server.ts",
         "build": "tsc",
@@ -15,7 +18,8 @@
         "ts-node": "^10.5.0",
         "tsc": "^2.0.4",
         "typecript": "^0.0.1-security",
-        "typescript": "^4.5.5"
+        "typescript": "^4.5.5",
+        "prisma": "^3.9.1"
     },
     "dependencies": {
         "@opentelemetry/api": "^1.0.4",
@@ -24,7 +28,6 @@
         "@opentelemetry/sdk-node": "^0.27.0",
         "@prisma/client": "^3.9.1",
         "express": "^4.17.2",
-        "prisma": "^3.9.1",
         "redis": "^4.0.3"
     }
 }

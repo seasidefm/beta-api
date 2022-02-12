@@ -52,7 +52,30 @@ model PlaylistEntry {
 }
 
 model User {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique(map: "name") @db.VarChar(45)
+  id        Int             @id @default(autoincrement())
+  name      String          @unique(map: "name") @db.VarChar(45)
   favorites Favorite[]
+  userLevel UserExperience?
+}
+
+model ExperienceLevel {
+  id           Int    @id @default(autoincrement())
+  level        Int
+  name         String
+  required_exp Int
+
+  UserExperience UserExperience[]
+  @@unique([level])
+  @@unique([name])
+  @@unique([required_exp])
+}
+
+model UserExperience {
+  user             User            @relation(fields: [userId], references: [id])
+  userId           Int
+  level            Int             @default(0)
+  experienceLevel  ExperienceLevel @relation(fields: [level], references: [level])
+  total_experience Int
+
+  @@unique([userId])
 }
