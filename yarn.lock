@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@babel/runtime@^7.4.5":
+  version "7.17.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
+  integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@cspotcode/source-map-consumer@0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@cspotcode/source-map-consumer/-/source-map-consumer-0.8.0.tgz#33bf4b7b39c178821606f669bbc447a6a629786b"
@@ -824,6 +831,13 @@
     "@types/keygrip" "*"
     "@types/node" "*"
 
+"@types/entropy-string@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/entropy-string/-/entropy-string-4.2.0.tgz#756229aa34960e8238944e7ced46670caca00ed6"
+  integrity sha512-aJOX4K5ZfRSHcODB9D/JBgeolvaO9z/8grvV5fcvux54QrVMWtPYvKxH16pk0rsB8UziKe95opEFxgHMN2fxwg==
+  dependencies:
+    "@types/node" "*"
+
 "@types/express-serve-static-core@^4.17.18":
   version "4.17.28"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.28.tgz#c47def9f34ec81dc6328d0b1b5303d1ec98d86b8"
@@ -1481,6 +1495,13 @@ end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   dependencies:
     once "^1.4.0"
+
+entropy-string@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/entropy-string/-/entropy-string-4.2.0.tgz#804d22a7eacb6eacf65e1296418c844647a4a609"
+  integrity sha512-PI/rkkCL6baY8dmJeNEco0tGDFeerVrFozaPLjSFuWRqD/LQsxIegEItQZnw4xcSz7E0TTMxeIw1nq240ZLXlw==
+  dependencies:
+    "@babel/runtime" "^7.4.5"
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -2452,6 +2473,11 @@ redis@^4.0.3:
     "@node-redis/json" "1.0.2"
     "@node-redis/search" "1.0.2"
     "@node-redis/time-series" "1.0.1"
+
+regenerator-runtime@^0.13.4:
+  version "0.13.9"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
+  integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
 
 registry-auth-token@^4.0.0:
   version "4.2.1"

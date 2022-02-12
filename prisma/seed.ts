@@ -1,9 +1,11 @@
 import { PrismaClient } from "@prisma/client";
+import { Entropy, charset64 } from 'entropy-string'
 
 // DO NOT USE THIS SEEDER SCRIPT FOR PRODUCTION
 
 async function main() {
     const prisma = new PrismaClient();
+
     console.log("Seeding Experience Levels");
     await prisma.experienceLevel.createMany({
         data: [
@@ -55,6 +57,24 @@ async function main() {
             }
         })
     }
+    console.log('...OK')
+
+    console.log('Seeding Development Machine Users')
+    const entropy = new Entropy({ charset: charset64 })
+    await prisma.machineUser.createMany({
+        data: [
+            {
+                name: 'botsuro-dev',
+                clientId: entropy.sessionID(),
+                clientSecret: entropy.token()
+            },
+            {
+                name: 'file-watcher',
+                clientId: entropy.sessionID(),
+                clientSecret: entropy.token()
+            }
+        ]
+    })
     console.log('...OK')
 }
 

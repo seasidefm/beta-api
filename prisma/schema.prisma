@@ -17,18 +17,6 @@ model Artist {
   @@index([name, aliases], map: "artist")
 }
 
-model Favorite {
-  song      Int
-  user      Int
-  dateSaved DateTime @default(now())
-  songData  Song     @relation(fields: [song], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_song")
-  userData  User     @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_user")
-
-  @@unique([song, user], map: "song")
-  @@index([user], map: "fk_user")
-  @@index([song, user], map: "user_songs")
-}
-
 model Song {
   id         Int        @id @default(autoincrement())
   song_title String
@@ -39,6 +27,18 @@ model Song {
   PlaylistEntry PlaylistEntry[]
   @@unique([song_title, artist_id])
   @@index([artist_id], map: "fk_song_artist")
+}
+
+model Favorite {
+  song      Int
+  user      Int
+  dateSaved DateTime @default(now())
+  songData  Song     @relation(fields: [song], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_song")
+  userData  User     @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_user")
+
+  @@unique([song, user], map: "song")
+  @@index([user], map: "fk_user")
+  @@index([song, user], map: "user_songs")
 }
 
 model PlaylistEntry {
@@ -78,4 +78,15 @@ model UserExperience {
   total_experience Int
 
   @@unique([userId])
+}
+
+// API - Machine Access
+// =========================
+
+model MachineUser {
+  name         String
+  clientId     String @id
+  clientSecret String
+
+  @@unique([name])
 }
