@@ -2,8 +2,8 @@ import {
     Favorites,
     IFavoriteService,
     UserWithFavoriteCount,
-} from "../base/Favorites";
-import { __redisClient, getRedisClient } from "../../utils/redis";
+} from "./base/Favorites";
+import { __redisClient, getRedisClient } from "../utils/redis";
 
 interface ILeaderboard {
     getFavoritesLeaderboard(

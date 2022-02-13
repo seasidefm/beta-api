@@ -89,17 +89,20 @@ export class Favorites implements IFavoriteService {
     public async getAllFavoriteCounts(
         orderBy: "asc" | "desc"
     ): Promise<Array<UserWithFavoriteCount>> {
+        console.log("Getting favorite counts");
         // If there is an exising cached value, use it
         const existingCache = await this.cache.json.get(
             CacheNames.UserFavoriteCounts
         );
 
         if (existingCache) {
+            console.log("> Using existing favorite leaderboard cache");
             // type cast because redis JSON typing is opaque
             return existingCache as unknown as Array<UserWithFavoriteCount>;
         }
 
         // Otherwise, re-fetch from scratch
+        console.log("> No cached favorites leaderboard, querying");
         const newValue = await this.db.user.findMany({
             orderBy: {
                 favorites: {
