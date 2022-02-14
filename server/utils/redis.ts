@@ -1,6 +1,7 @@
 import { createClient } from "redis";
 
 export enum CacheNames {
+    TwitchData = "twitch-user-data",
     UserFavoriteCounts = "user-fave-counts",
     FavoritesLeaderboard = "favorites-leaderboard",
     NowPlaying = "now-playing",

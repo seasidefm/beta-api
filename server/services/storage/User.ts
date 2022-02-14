@@ -2,6 +2,7 @@ import { PrismaClient, User as PrismaUser } from "@prisma/client";
 import { Entropy, charset64 } from "entropy-string";
 
 import { IServiceBase } from "./interface";
+import { __redisClient, getRedisClient } from "../../utils/redis";
 
 export interface CredentialsPayload {
     access_token: string;
@@ -12,10 +13,12 @@ export interface CredentialsPayload {
 
 export class User implements IServiceBase<PrismaUser> {
     private db: PrismaClient;
+    private cache: typeof __redisClient;
     private tokenGenerator: Entropy;
 
     constructor() {
         this.db = new PrismaClient();
+        this.cache = getRedisClient();
         this.tokenGenerator = new Entropy({ charset: charset64 });
     }
 
@@ -46,4 +49,6 @@ export class User implements IServiceBase<PrismaUser> {
             },
         });
     }
+
+    public async getTwitchUserData(token: string) {}
 }
