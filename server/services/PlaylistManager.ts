@@ -1,4 +1,4 @@
-import { Playlist } from "./base/Playlist";
+import { Playlist } from "./storage/Playlist";
 
 export class PlaylistManager {
     private playlist: Playlist;
