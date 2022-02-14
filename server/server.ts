@@ -5,6 +5,7 @@ import cors from "cors";
 import { setupRedisClient } from "./utils/redis";
 import { Leaderboards } from "./services/Leaderboards";
 import { PlaylistManager } from "./services/PlaylistManager";
+import authRoutes from "./routes/auth";
 
 const prisma = new PrismaClient();
 
@@ -30,6 +31,10 @@ app.use(express.json());
 app.get("/health", (_, res) => {
     res.send("Healthy!");
 });
+
+// Authentication
+// ========================================
+app.use("/auth", authRoutes);
 
 // Now-playing and playlist endpoints
 // ========================================
