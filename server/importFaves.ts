@@ -72,7 +72,7 @@ async function main() {
         // --------------------------------- Loop through each of their favorite songs
         for (const song of songs) {
             const [artistName, songTitle] = song.song.split("-");
-            console.log(`Importing song > ${song.song}`);
+            console.log(`Importing song > ${song.song.trim()}`);
             const createdArtist = await a.findOrCreate(artistName.trim());
             const createdSong = await s.findOrCreate(
                 createdArtist.id,
@@ -82,7 +82,8 @@ async function main() {
             console.log(
                 `Importing favorite > ${createdUser.name} -> ${createdSong.song_title}`
             );
-            await f.create(
+
+            await f.TEMP_IMPORT_ERROR_OVERRIDE(
                 createdUser.id,
                 createdSong.id,
                 new Date(song.date * 1000)

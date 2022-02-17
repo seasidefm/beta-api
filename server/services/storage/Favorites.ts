@@ -38,6 +38,18 @@ export class Favorites implements IFavoriteService {
         this.cache = getRedisClient();
     }
 
+    public async TEMP_IMPORT_ERROR_OVERRIDE(
+        user: number,
+        song: number,
+        date?: Date
+    ) {
+        try {
+            return await this.create(user, song, date);
+        } catch (e) {
+            console.error(`Duplicate favorite: ${user} - ${song}`);
+        }
+    }
+
     public async create(user: number, song: number, date?: Date) {
         return await this.db.favorite.create({
             data: {
