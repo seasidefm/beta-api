@@ -5,6 +5,7 @@ import { User } from "./services/storage/User";
 import { Artist } from "./services/storage/Artist";
 import { Song } from "./services/storage/Song";
 import { Favorites } from "./services/storage/Favorites";
+import { Request } from "./services/storage/Request";
 
 console.log("Running MongoDB -> MariaDB Migration");
 
@@ -20,6 +21,23 @@ interface UserFavoriteDocument {
     _id: string;
     user: string;
     songs: FavoriteSong[];
+}
+
+interface RequestDocument {
+    _id: string;
+    user: string;
+    artist: string;
+    song_title: string;
+
+    // Some have requested dates
+    request_date?: number;
+
+    // Meta
+    ripped?: boolean;
+    streamed?: number;
+    stream_date?: string;
+    owned?: boolean;
+    notes?: string;
 }
 
 async function getMongo() {
@@ -43,13 +61,15 @@ async function main() {
 
     console.log("Assigning collection vars");
     const userFaves = mongo.db("devDb").collection("saved_songs");
+    const userRequests = mongo.db("devDb").collection("requests");
     console.log("...OK");
 
     console.log("Creating DB access services");
     const u = new User(),
         a = new Artist(),
         s = new Song(),
-        f = new Favorites();
+        f = new Favorites(),
+        r = new Request();
     console.log("...OK");
 
     console.log("Getting user-favorite objects from Mongo");
@@ -105,6 +125,44 @@ async function main() {
         }
         bar.stop();
     }
+    console.log("...OK");
+
+    console.log("Reading request history");
+    const requests = (await userRequests
+        .find()
+        .toArray()) as unknown as RequestDocument[];
+    console.log(`> Found ${requests.length} requests`);
+    console.log("...OK");
+
+    console.log("Saving requests to new DB");
+    const requestsBar = new cliProgress.SingleBar(
+        {},
+        cliProgress.Presets.shades_classic
+    );
+    requestsBar.start(requests.length, 0);
+    for (const req of requests) {
+        const user = await u.findOrCreate(req.user);
+        await r.findOrCreate(
+            user.id,
+            `${req.artist} - ${req.song_title}`,
+            {
+                requested: req.request_date
+                    ? new Date(req.request_date * 1000)
+                    : undefined,
+                played: req.stream_date ? new Date(req.stream_date) : undefined,
+            },
+            {
+                ripped: req.ripped,
+                streamed: Boolean(req.streamed),
+                ownedStatus: req.owned,
+                notes: req.notes,
+            }
+        );
+
+        requestsBar.increment();
+    }
+    requestsBar.stop();
+
     console.log("...OK");
 
     console.log("Disconnecting from MongoDB");
