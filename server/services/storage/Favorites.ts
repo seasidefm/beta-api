@@ -46,7 +46,7 @@ export class Favorites implements IFavoriteService {
         try {
             return await this.create(user, song, date);
         } catch (e) {
-            console.error(`Duplicate favorite: ${user} - ${song}`);
+            // console.error(`Duplicate favorite: ${user} - ${song}`);
         }
     }
 
