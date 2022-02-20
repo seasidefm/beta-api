@@ -1,5 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 import cliProgress from "cli-progress";
+import { config } from "dotenv";
 
 import { User } from "./services/storage/User";
 import { Artist } from "./services/storage/Artist";
@@ -8,6 +9,7 @@ import { Favorites } from "./services/storage/Favorites";
 import { Request } from "./services/storage/Request";
 
 console.log("Running MongoDB -> MariaDB Migration");
+config();
 
 type UnixDate_needs_ms = number;
 type Song_needs_trim = string;
@@ -70,6 +72,7 @@ async function main() {
         s = new Song(),
         f = new Favorites(),
         r = new Request();
+    // t = new TwitchService();
     console.log("...OK");
 
     console.log("Getting user-favorite objects from Mongo");
@@ -78,6 +81,13 @@ async function main() {
         .toArray()) as unknown as Array<UserFavoriteDocument>;
     console.log(`> Found ${userObjects.length} documents`);
     console.log("...OK");
+
+    // console.log("Getting Twitch user information");
+    // const twitchUserData = await t.getTwitchInfoByUsernames(
+    //     userObjects.map((u) => u.user)
+    // );
+    // console.log(twitchUserData);
+    // console.log("...OK");
 
     console.log("Writing user objects to new DB");
     const userBar = new cliProgress.SingleBar(
@@ -94,7 +104,7 @@ async function main() {
     console.log("...OK");
 
     console.log("Creating favorite songs in new DB");
-    // Loop through the same userobjects
+    // Loop through the same user objects
     for (const obj of userObjects) {
         const bar = new cliProgress.SingleBar(
             {},
@@ -163,9 +173,6 @@ async function main() {
     }
     requestsBar.stop();
 
-    console.log("...OK");
-
-    console.log("Disconnecting from MongoDB");
     console.log("...OK");
 
     console.log("Cleaning up");

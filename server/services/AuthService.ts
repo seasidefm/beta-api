@@ -10,24 +10,30 @@ export class AuthService {
         this.twitch = new TwitchService();
     }
 
-    public async checkToken(token: string) {}
-
     public async loginUser(
-        user: string,
+        username: string,
         twitchCredentials: CredentialsPayload
     ) {
-        const usernamePayload = await this.twitch.getTwitchUsername(
+        const usernamePayload = await this.twitch.getTwitchTokenInfo(
             twitchCredentials.access_token
         );
-        const data = await this.twitch.getTwitchUserInfo(
+        const data = await this.twitch.getTwitchUserDetails(
             usernamePayload.preferred_username,
             twitchCredentials.access_token
         );
-        console.log(data);
 
-        const userData = await this.userTable.findOrCreate(user);
+        if (!data.data || data.error) {
+            throw new Error(data.error || "Cannot fetch twitch details");
+        }
+
+        const { user, twitchProfile } =
+            await this.userTable.findOrLinkTwitchProfile(username, {
+                twitch: data.data[0],
+            });
+
         const tokenPayload = await this.userTable.storeTwitchCredentials(
-            userData.id,
+            user.id,
+            twitchProfile.twitch_id,
             twitchCredentials
         );
 

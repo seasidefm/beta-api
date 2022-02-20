@@ -1,5 +1,18 @@
 import fetch from "isomorphic-unfetch";
 
+export type TwitchDateString = string;
+
+export interface TwitchPublicInfo {
+    _id: string;
+    bio: string;
+    created_at: TwitchDateString;
+    display_name: string;
+    logo: string;
+    name: string;
+    type: string;
+    updated_at: TwitchDateString;
+}
+
 export interface TwitchUserInfoResponse {
     aud: string;
     exp: number;
@@ -39,7 +52,25 @@ export class TwitchService {
         this.clientId = clientId;
     }
 
-    public async getTwitchUsername(token: string) {
+    public async getTwitchInfoByUsernames(
+        usernames: string[]
+    ): Promise<TwitchPublicInfo[]> {
+        console.log(process.env.TWITCH_OAUTH_TOKEN);
+        return await fetch(
+            `https://api.twitch.tv/helix/users?login=${usernames
+                .join(",")
+                .toLowerCase()}`,
+            {
+                method: "GET",
+                headers: {
+                    // Authorization: `Bearer ${process.env.TWITCH_OAUTH_TOKEN}`,
+                    "Client-Id": this.clientId,
+                },
+            }
+        ).then((res) => res.json());
+    }
+
+    public async getTwitchTokenInfo(token: string) {
         return await fetch("https://id.twitch.tv/oauth2/userinfo", {
             method: "GET",
             headers: {
@@ -48,7 +79,7 @@ export class TwitchService {
         }).then((res) => res.json() as Promise<TwitchUserInfoResponse>);
     }
 
-    public async getTwitchUserInfo(
+    public async getTwitchUserDetails(
         username: string,
         token: string
     ): Promise<{ data: TwitchUser[]; error?: string }> {

@@ -49,7 +49,7 @@ model Song {
 
 // Profile
 // =========================
-// - User object is basic, as it mostly comes from twitch
+// - User object is basic, as data mostly comes from OAuth provider
 // - All favorites, requests, and future user objects
 //   will use the user object in a one-to-many relationship
 // - Favorites tie songs to users in a many-to-many relationship
@@ -66,15 +66,16 @@ model User {
   userLevel         UserExperience?
   Request           Request[]
   // Optional because users are generated BEFORE twitch login
-  profile           TwitchUserProfile?
+  twitch            TwitchUserProfile?
   TwitchCredentials TwitchCredentials[]
-
-
 }
+
+// Twitch Profile
+// =========================
 
 model TwitchUserProfile {
   user              Int
-  twitch_id         Int
+  twitch_id         String
   login             String
   display_name      String
   type              String
@@ -85,15 +86,23 @@ model TwitchUserProfile {
   view_count        Int
   created_at        String
 
-  userData User @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_user_to_twitch")
+  TwitchCredentials TwitchCredentials[]
+  OnPlatformUser    User                @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict)
 
   @@unique([user])
   @@unique([twitch_id])
 }
 
 model TwitchCredentials {
-  user           Int
+  id             Int      @id @default(autoincrement())
+
+  // Reference various user logins
+  // THESE MUST NOT BE UNIQUE
+  twitch_id      String
+  user_id        Int
+
   platform_token String
+  date_created   DateTime @default(now())
   last_used      DateTime @default(now())
 
   // These are directly issued by twitch
@@ -102,10 +111,15 @@ model TwitchCredentials {
   scope         String?
   token_type    String  @default("bearer")
 
-  userData User @relation(fields: [user], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "fk_user_token")
+  TwitchUserProfile TwitchUserProfile @relation(fields: [twitch_id], references: [twitch_id])
+  OnPlatformUser    User              @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Restrict)
+
 
   @@unique([platform_token])
 }
+
+// Platform Data
+// =========================
 
 model Favorite {
   song      Int
