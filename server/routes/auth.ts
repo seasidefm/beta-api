@@ -16,8 +16,24 @@ interface LoginPayload {
 
 const authService = new AuthService();
 
+// The unified Login route
+//
+// Performs the following:
+// - Twitch profile creation (if missing)
+// - User profile creation (if missing)
+// - Linking Twitch with existing
+//   user profile (if unlinked)
+// - Auth token issuance
+// ==============================================
 router.post("/login", async (req, res) => {
     const data: LoginPayload = req.body;
+    const cookies = Cookies(req, res);
+    const token = cookies.get("token");
+
+    // Short-circuit if an existing token is found
+    if (token) {
+        return res.send("OK");
+    }
 
     if (data.twitch) {
         const payload = data.twitch;
@@ -30,7 +46,6 @@ router.post("/login", async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            expires: new Date(new Date().getTime() + 900000),
         });
     }
 
