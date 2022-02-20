@@ -41,7 +41,13 @@ router.get("/user", async (req, res) => {
     const cookies = Cookies(req, res);
     const token = cookies.get("token");
 
-    res.json({ boop: "boop" });
+    if (!token) {
+        return res.status(403).send("You must have a token cookie");
+    }
+
+    const userData = await authService.getUserInfo(token);
+
+    res.json({ ...userData });
 });
 
 export default router;

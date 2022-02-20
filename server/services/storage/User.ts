@@ -67,6 +67,18 @@ export class User implements IServiceBase<PrismaUser> {
         });
     }
 
+    public async findByToken(token: string) {
+        return await this.db.twitchCredentials.findUnique({
+            where: {
+                platform_token: token,
+            },
+            select: {
+                OnPlatformUser: true,
+                TwitchUserProfile: true,
+            },
+        });
+    }
+
     public async findOrLinkTwitchProfile(
         user: string,
         profile: ExternalProfile

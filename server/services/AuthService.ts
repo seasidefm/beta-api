@@ -1,6 +1,8 @@
 import { CredentialsPayload, User } from "./storage/User";
 import { TwitchService } from "./TwitchService";
 
+export interface UserObject {}
+
 export class AuthService {
     private userTable: User;
     private twitch: TwitchService;
@@ -38,5 +40,9 @@ export class AuthService {
         );
 
         return tokenPayload.platform_token;
+    }
+
+    public async getUserInfo(token: string) {
+        return this.userTable.findByToken(token);
     }
 }
