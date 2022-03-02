@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `TwitchCredentials` ADD COLUMN `last_used` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3);
